@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - NTS Travel Services</title>
+    <meta name="description" content="NTS Transportation Service Administrative Management Dashboard." />
+    <meta property="og:title" content="NTS Travel Services - Admin Portal" />
+    <meta property="og:description" content="NTS Transportation Service Administrative Management Dashboard." />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="./ui-preferences.js"></script>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <!-- Institutional Admin Header -->
+    <header class="app-header" style="background: var(--secondary); color: #ffffff;">
+      <div class="header-container">
+        <a href="index.html" class="app-logo">
+          <span class="logo-icon"><i data-lucide="building-2"></i></span>
+          <div class="logo-text">
+            <span style="color: #ffffff;">NTS CENTRAL ADMINISTRATION</span>
+            <span style="color: #94a3b8;">Directorate of Student Transportation</span>
+          </div>
+        </a>
+
+        <div style="display: flex; gap: 14px; align-items: center;">
+          <div style="text-align: right; display: flex; flex-direction: column;">
+            <strong style="font-size: 0.95rem; color: #ffffff;">Engr. Zafar Iqbal</strong>
+            <span style="font-size: 0.78rem; color: #cbd5e1;">Director of Transport, NUST / NTS</span>
+          </div>
+
+          <button id="btn-admin-logout" class="btn btn-outline btn-sm" style="border-color: #475569; color: #ffffff;">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Navigation Tabs Bar -->
+    <div style="background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 40;">
+      <div class="content-container">
+        <div class="admin-tabs-nav">
+          <button class="admin-tab-btn active" data-tab="dashboard">
+            <i data-lucide="chart-column"></i> <span data-i18n="Overview">Overview</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="fleet">
+            <i data-lucide="satellite"></i> <span data-i18n="Fleet Telemetry">Fleet Telemetry</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="buses">
+            <i data-lucide="bus-front"></i> <span data-i18n="Bus Fleet">Bus Fleet</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="stops">
+            <i data-lucide="octagon-alert"></i> <span data-i18n="Stops & Ordering">Stops & Ordering</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="routes">
+            <i data-lucide="route"></i> <span data-i18n="Route Corridors">Route Corridors</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="drivers">
+            <i data-lucide="user-round-check"></i> <span data-i18n="Driver Directory">Driver Directory</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="students">
+            <i data-lucide="users"></i> <span data-i18n="Student Roster">Student Roster</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="polls">
+            <i data-lucide="vote"></i> <span data-i18n="Polling Control">Polling Control</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="records">
+            <i data-lucide="clipboard-list"></i> <span data-i18n="Boarding Audit">Boarding Audit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      <div class="content-container">
+        <div id="admin-content-area"></div>
+      </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script type="module">
+      import { AdminPortalController } from './admin.js';
+      document.addEventListener('DOMContentLoaded', () => {
+        new AdminPortalController().init();
+      });
+    </script>
+  </body>
+</html>

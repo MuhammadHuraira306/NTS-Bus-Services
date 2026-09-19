@@ -1,0 +1,6 @@
+{
+  "name": "NTS Travel Services",
+  "description": "Bus tracking, student polling, and driver boarding management system for NUST and university transportation.",
+  "requestFramePermissions": ["geolocation", "notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

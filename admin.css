@@ -1,0 +1,284 @@
+/* ==========================================================================
+   NTS Travel Services - Admin Portal Stylesheet
+   Executive University Transportation Control Center
+   ========================================================================== */
+
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Admin Subheader & Navigation */
+.admin-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-nav-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.admin-tab-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.admin-tab-btn:hover {
+  background: rgba(21, 87, 166, 0.08);
+  border-color: #1557A6;
+  color: #1557A6;
+}
+
+.admin-tab-btn.active {
+  background: #1557A6; /* Royal Blue */
+  border-color: #1557A6;
+  color: #ffffff;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #0B1F3A; /* Deep Navy */
+}
+
+.stat-card.stat-accent::before { background: #2F80ED; }    /* Sky Blue */
+.stat-card.stat-success::before { background: #16A34A; }   /* Success */
+.stat-card.stat-danger::before { background: #DC2626; }    /* Danger */
+.stat-card.stat-secondary::before { background: #1557A6; } /* Royal Blue */
+
+.stat-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* Admin Live Fleet Monitoring */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.bus-monitor-card {
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bus-monitor-card.active-trip {
+  border-color: #86efac;
+}
+
+.bus-monitor-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bus-monitor-id {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bus-passenger-bar {
+  margin-top: 4px;
+}
+
+.bus-passenger-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Poll Controls & Demand Breakdown */
+.demand-distribution-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demand-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demand-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.demand-progress-track {
+  width: 100%;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.demand-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1557A6 0%, #2F80ED 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* Data Tables */
+.table-container {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table-toolbar {
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-subtle);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.search-input {
+  max-width: 260px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background: #f1f5f9;
+  color: var(--text-main);
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.data-table tr:hover td {
+  background: #f8fafc;
+}
+
+.data-table td .actions-cell {
+  display: flex;
+  gap: 6px;
+}
+
+/* Stop Reorder Controls */
+.order-btn-group {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.btn-order-arrow {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-order-arrow:hover:not(:disabled) {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-order-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

@@ -1,0 +1,456 @@
+/* ==========================================================================
+   NTS Travel Services - Driver Portal Stylesheet
+   HIGH CONTRAST, EXTRA LARGE TOUCH TARGETS, ZERO-CLUTTER INTERFACE
+   ========================================================================== */
+
+/* Overall Driver Container */
+.driver-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Trip Header Card */
+.driver-trip-banner {
+  background: #0B1F3A; /* Deep Navy */
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border-bottom: 5px solid #1557A6; /* Royal Blue */
+  box-shadow: var(--shadow-md);
+}
+
+.driver-trip-banner .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.driver-bus-badge {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.driver-status-pill {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.driver-status-pill.active {
+  background: var(--status-success);
+  color: #ffffff;
+  animation: pulse-active 2s infinite;
+}
+
+@keyframes pulse-active {
+  0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+.driver-route-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.driver-current-stop-highlight {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.driver-current-stop-highlight .label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 700;
+}
+
+.driver-current-stop-highlight .stop-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2F80ED; /* Sky Blue Accent */
+}
+
+/* Big Action Buttons for Drivers (Min 68px height for effortless finger taps) */
+.driver-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.btn-driver-huge {
+  min-height: 68px;
+  padding: 16px 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease, filter 0.15s ease;
+  user-select: none;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.btn-driver-huge:active {
+  transform: scale(0.98);
+}
+
+.btn-driver-huge .urdu-subtitle {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+  letter-spacing: 0;
+}
+
+.btn-driver-huge .btn-icon {
+  font-size: 1.6rem;
+}
+
+/* Section 38: Start Trip - Royal Blue #1557A6 */
+.btn-driver-start {
+  background: #1557A6;
+  color: #ffffff;
+  border-color: #114687;
+}
+.btn-driver-start:hover {
+  background: #114687;
+}
+
+/* Section 39: Arrived at Stop - Amber Waiting/Attention #F59E0B */
+.btn-driver-arrived {
+  background: #F59E0B;
+  color: #ffffff;
+  border-color: #D97706;
+}
+.btn-driver-arrived:hover {
+  background: #D97706;
+}
+
+/* Next Stop - Deep Navy #0B1F3A */
+.btn-driver-next {
+  background: #0B1F3A;
+  color: #ffffff;
+  border-color: #071526;
+}
+.btn-driver-next:hover {
+  background: #071526;
+}
+
+.btn-driver-gps {
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+  font-size: 1.05rem;
+  min-height: 54px;
+}
+.btn-driver-gps.sharing {
+  background: #dcfce7;
+  color: #14532d;
+  border-color: #86efac;
+}
+
+.btn-driver-end {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #b91c1c;
+  min-height: 56px;
+  font-size: 1.1rem;
+}
+
+/* Stop Selection Screen (When driver reaches a stop or chooses one) */
+.stops-selection-card {
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stops-selection-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.driver-stops-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.driver-stop-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.driver-stop-item:hover {
+  border-color: var(--primary);
+  background: #f0fdf4;
+}
+
+.driver-stop-item.current {
+  border-color: #ea580c;
+  background: #fff7ed;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+}
+
+.driver-stop-item.passed {
+  opacity: 0.75;
+  background: #f3f4f6;
+}
+
+.driver-stop-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stop-status-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.stop-status-dot.green { background: #16a34a; }
+.stop-status-dot.yellow { background: #ea580c; }
+.stop-status-dot.gray { background: #9ca3af; border: 2px solid #d1d5db; }
+
+.driver-stop-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.driver-stop-counts {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4b5563;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid #d1d5db;
+}
+
+/* Student Manifest Screen for Current Stop */
+.manifest-card {
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.manifest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.manifest-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.manifest-counter {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.students-manifest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  transition: all 0.15s;
+}
+
+.student-row.status-boarded {
+  border-color: #86EFAC;
+  background: #DCFCE7;
+}
+
+.student-row.status-waiting {
+  border-color: #FCD34D;
+  background: #FEF3C7;
+}
+
+.student-row.status-missed {
+  border-color: #FCA5A5;
+  background: #FEE2E2;
+}
+
+.student-main-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #64748B;
+  width: 26px;
+}
+
+.student-name-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #172033;
+}
+
+.student-sub-info {
+  font-size: 0.8rem;
+  color: #64748B;
+}
+
+/* Quick toggle status buttons for driver (Zero typing!) */
+.driver-status-toggle-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn-driver-chip {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.btn-driver-chip.boarded {
+  background: #DCFCE7;
+  color: #15803D;
+  border-color: #86EFAC;
+}
+.btn-driver-chip.boarded.active {
+  background: #16A34A; /* Section 39: Success / Boarded */
+  color: #ffffff;
+}
+
+.btn-driver-chip.waiting {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FCD34D;
+}
+.btn-driver-chip.waiting.active {
+  background: #F59E0B; /* Section 39: Warning / Waiting */
+  color: #ffffff;
+}
+
+.btn-driver-chip.missed {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FCA5A5;
+}
+.btn-driver-chip.missed.active {
+  background: #DC2626; /* Section 39: Danger / Missed */
+  color: #ffffff;
+}
+
+.btn-call-student {
+  background: #DBEAFE;
+  color: #1557A6;
+  border: 1px solid #93C5FD;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.btn-call-student:hover {
+  background: #1557A6;
+  color: #ffffff;
+}
+
+/* Safety Departure Modal */
+.safety-warning-modal {
+  border-top: 6px solid #dc2626;
+}
+
+.safety-warning-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #991b1b;
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.unconfirmed-list {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.unconfirmed-item {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #7f1d1d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

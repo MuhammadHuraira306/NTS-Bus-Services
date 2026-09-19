@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTS Travel Services - University Bus Tracking & Boarding Management</title>
+    <meta name="description" content="Bus tracking, student polling, and driver boarding management system for NUST and university transportation." />
+    <meta property="og:title" content="NTS Travel Services" />
+    <meta property="og:description" content="Bus tracking, student polling, and driver boarding management system for NUST and university transportation." />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="./ui-preferences.js"></script>
+    <script defer src="./github-pages-fix.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <header class="app-header">
+      <div class="header-container">
+        <a href="index.html" class="app-logo">
+          <span class="logo-icon"><i data-lucide="bus-front"></i></span>
+          <div class="logo-text">
+            <span>NTS TRAVEL SERVICES</span>
+            <span>NUST University Transport System</span>
+          </div>
+        </a>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span class="badge badge-success" style="font-size: 0.8rem; font-weight: 700;">
+            🟢 Operational Status: Normal
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="content-container">
+        <div id="existing-session-banner"></div>
+
+        <!-- Hero Card (Deep Navy to Royal Blue Gradient) -->
+        <div class="card nts-3d-hero" style="background: linear-gradient(135deg, #0B1F3A 0%, #1557A6 100%); color: #ffffff; margin-bottom: 28px; padding: 32px 28px; border: 1px solid #1557A6;">
+          <div style="max-width: 800px;">
+            <div class="badge badge-info" style="margin-bottom: 12px; font-size: 0.85rem; font-weight: 800; background: rgba(255,255,255,0.15); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25);">
+              OFFICIAL UNIVERSITY TRANSIT MANAGEMENT
+            </div>
+            <h1 style="font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px; color: #FFFFFF;">
+              Bus Tracking, Student Polling & Boarding Management
+            </h1>
+            <p style="font-size: 1.05rem; opacity: 0.95; line-height: 1.6; margin-bottom: 20px; color: #E2E8F0;">
+              Coordinating university transit between <strong>Wah Cantt, Taxila, Margalla & NUST H-12 Campus</strong>.
+              Drivers know exactly who is waiting at each stop; students track their bus in real time and confirm boarding with zero guesswork.
+            </p>
+
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">
+              <div>🟢 <strong>Fleet Status:</strong> <span id="landing-stat-buses">4 Active Buses</span></div>
+              <div>👥 <strong>Enrolled Students:</strong> <span id="landing-stat-students">20 Registered</span></div>
+              <div>⏰ <strong>Morning Poll:</strong> <span id="landing-stat-poll">Open</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portal Access Section -->
+        <div style="margin-bottom: 28px;">
+          <div style="margin-bottom: 14px;">
+            <h2 style="font-size: 1.35rem; color: var(--text-main); font-weight: 800;"><span data-i18n="Authorized Portal Access">Authorized Portal Access</span></h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">
+              Direct role-based access for university students, transit drivers, and transportation administrators:
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <!-- Student Portal Card -->
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #1557A6;">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 10px;">🎓</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: #0B1F3A;">Student Portal</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+                  Vote for morning & return buses, select your stop, track live GPS location on interactive route map, and confirm boarding when the bus arrives.
+                </p>
+                <div style="font-size: 0.82rem; background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 16px; border: 1px solid var(--border-color);">
+                  👤 <strong>Authorized Student:</strong> Hamza Malik (SEECS)<br>
+                  📍 <strong>Assigned Stop:</strong> Taxila Chowk
+                </div>
+              </div>
+              <a class="btn btn-primary btn-quick-login" data-role="student" href="student.html?demo=student" style="width: 100%; text-decoration: none;">
+                <span data-i18n="Student Portal">Enter Student Portal</span> <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Driver Portal Card -->
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #0B1F3A;">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 10px;">🚌</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: #0B1F3A;">Driver Transit Console</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+                  High-contrast, large-button mobile interface. Stop-by-stop passenger manifest, 1-tap boarding toggles, and unconfirmed student departure safety guard.
+                </p>
+                <div style="font-size: 0.82rem; background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 16px; border: 1px solid var(--border-color);">
+                  👤 <strong>Assigned Operator:</strong> Muhammad Ali<br>
+                  🚌 <strong>Assigned Bus:</strong> NTS-01 (Wah → NUST)
+                </div>
+              </div>
+              <a class="btn btn-primary btn-quick-login" data-role="driver" href="driver.html?demo=driver" style="width: 100%; text-decoration: none;">
+                <span data-i18n="Driver Transit Console">Enter Driver Portal</span> <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Admin Portal Card -->
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #2F80ED;">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 10px;">⚙️</div>
+                <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: #0B1F3A;">Transport Directorate</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+                  Executive oversight: live fleet monitoring, stop reordering (up/down), driver & bus assignments, student roster, polling deadlines, and boarding logs.
+                </p>
+                <div style="font-size: 0.82rem; background: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 16px; border: 1px solid var(--border-color);">
+                  👤 <strong>Director:</strong> Engr. Zafar Iqbal<br>
+                  🏢 <strong>Division:</strong> NTS Central Transport Office
+                </div>
+              </div>
+              <a class="btn btn-primary btn-quick-login" data-role="admin" href="admin.html?demo=admin" style="width: 100%; text-decoration: none;">
+                <span data-i18n="Transport Directorate">Enter Admin Portal</span> <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard Credentials Login Form Card -->
+        <div class="grid-2" style="margin-bottom: 32px;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Sign In with University Credentials</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+              Enter your institutional email address and password to access your role-specific dashboard.
+            </p>
+
+            <form id="login-form">
+              <div class="form-group">
+                <label class="form-label" for="login-email">University Email Address:</label>
+                <input type="email" id="login-email" class="form-control" placeholder="e.g. student@nts.local" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="login-password">Password:</label>
+                <input type="password" id="login-password" class="form-control" placeholder="••••••••" required />
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Sign In to NTS Portal
+              </button>
+            </form>
+
+            <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+              <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px;">
+                TEST ACCESS CREDENTIALS:
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-outline btn-sm preset-cred-pill" data-email="student@nts.local" data-password="student123">
+                  Student (student@nts.local)
+                </button>
+                <button type="button" class="btn btn-outline btn-sm preset-cred-pill" data-email="driver@nts.local" data-password="driver123">
+                  Driver (driver@nts.local)
+                </button>
+                <button type="button" class="btn btn-outline btn-sm preset-cred-pill" data-email="admin@nts.local" data-password="admin123">
+                  Admin (admin@nts.local)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature & Safety Highlights -->
+          <div class="card" style="background: var(--bg-subtle);">
+            <div class="card-header">
+              <h3 class="card-title">🛡️ <span data-i18n="Core System Features">Core System Features</span></h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.9rem;">
+              <div style="display: flex; gap: 12px;">
+                <span style="font-size: 1.4rem;">🗳️</span>
+                <div>
+                  <strong>Separate Morning & Return Polling</strong>
+                  <div style="color: var(--text-muted); font-size: 0.84rem;">Capacity-aware seat reservations preventing overcrowded buses.</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <span style="font-size: 1.4rem;">📡</span>
+                <div>
+                  <strong>Live Bus Location & ETA</strong>
+                  <div style="color: var(--text-muted); font-size: 0.84rem;">Real GPS telematics with animated SVG route visualization along the Wah–NUST highway corridor.</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <span style="font-size: 1.4rem;">🛑</span>
+                <div>
+                  <strong>Driver Stop-by-Stop Manifest</strong>
+                  <div style="color: var(--text-muted); font-size: 0.84rem;">Shows expected students at each stop with one-tap status updates (Boarded / Waiting / Missed).</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <span style="font-size: 1.4rem;">⚠️</span>
+                <div>
+                  <strong>Student Departure Warning Guard</strong>
+                  <div style="color: var(--text-muted); font-size: 0.84rem;">Alerts the driver if any students scheduled for that stop are still unconfirmed before leaving, preventing students from being left behind!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Driver Console - NTS Travel Services</title>
+    <meta name="description" content="Driver console for stop-by-stop boarding confirmation and live GPS sharing." />
+    <meta property="og:title" content="NTS Travel Services - Driver Console" />
+    <meta property="og:description" content="Driver console for stop-by-stop boarding confirmation and live GPS sharing." />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="./ui-preferences.js"></script>
+    <link rel="stylesheet" href="./driver.css" />
+  </head>
+  <body style="background: #0b1120;">
+    <!-- Minimal High-Contrast Header -->
+    <header class="app-header" style="background: #111827; border-bottom: 2px solid #374151;">
+      <div class="header-container" style="max-width: 650px;">
+        <a href="index.html" class="app-logo" style="text-decoration: none;">
+          <span class="logo-icon"><i data-lucide="bus-front"></i></span>
+          <div class="logo-text">
+            <span style="color: #fbbf24; font-weight: 900; font-size: 1.1rem;">NTS DRIVER CONSOLE</span>
+            <span style="color: #9ca3af; font-size: 0.75rem;">ڈرائیور کنٹرول پینل</span>
+          </div>
+        </a>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button id="btn-driver-logout" class="btn btn-outline btn-sm" style="border-color: #4b5563; color: #f3f4f6;">
+            Log Out / خروج
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Mobile Touch Workspace -->
+    <main class="main-content" style="padding-top: 10px; padding-bottom: 30px;">
+      <div id="driver-app-root">
+        <!-- Rendered via driver.js -->
+      </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script type="module">
+      import { DriverPortalController } from './driver.js';
+      document.addEventListener('DOMContentLoaded', () => {
+        new DriverPortalController().init();
+      });
+    </script>
+  </body>
+</html>
